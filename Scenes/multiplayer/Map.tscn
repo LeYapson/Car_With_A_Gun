@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Map/map-Sheet.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 1920, 1080 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 1920, 0, 1920, 1080 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 3840, 0, 1920, 1080 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 5760, 0, 1920, 1080 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 0.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 114, 35.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 114, 106.5 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 114.25, 35.5 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 18.5, 300 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 548.5, 18.5 )
+
+[node name="Map" type="Node2D"]
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 512.25, 300 )
+scale = Vector2( 0.533073, 0.555556 )
+frames = SubResource( 5 )
+frame = 1
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 505, 35.5 )
+shape = SubResource( 6 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 505, 300.5 )
+shape = SubResource( 7 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 504.75, 564.5 )
+shape = SubResource( 8 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2( -18, 300 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2( 511.5, -18.5 )
+shape = SubResource( 10 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2( 1042, 300 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2( 512, 618 )
+shape = SubResource( 10 )

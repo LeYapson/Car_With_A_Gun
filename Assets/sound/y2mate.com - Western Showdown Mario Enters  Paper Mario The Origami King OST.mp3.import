@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/y2mate.com - Western Showdown Mario Enters  Paper Mario The Origami King OST.mp3-d654d58412cd3a4731a74fff666a9538.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound/y2mate.com - Western Showdown Mario Enters  Paper Mario The Origami King OST.mp3"
+dest_files=[ "res://.import/y2mate.com - Western Showdown Mario Enters  Paper Mario The Origami King OST.mp3-d654d58412cd3a4731a74fff666a9538.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
