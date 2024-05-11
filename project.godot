@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="CarWithAGun-3"
-run/main_scene="res://Scenes/multiplayer/Multiplayer.tscn"
+run/main_scene="res://Scenes/UI/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
