@@ -5,6 +5,7 @@ var ready_timer = null
 var fight_timer = null
 
 func _ready():
+	MusicController.play_music_game()
 	# Show "READY?" label initially
 	$ReadyLabel.visible = true
 	$FightLabel.visible = false
