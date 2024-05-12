@@ -16,17 +16,19 @@ anchor_bottom = 1.0
 script = ExtResource( 6 )
 
 [node name="MainMenu" type="Sprite" parent="."]
-position = Vector2( 512, 300 )
+position = Vector2( 512, 301 )
 texture = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 730.0
-margin_top = 221.0
-margin_right = 980.0
-margin_bottom = 553.0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -272.0
+margin_top = -346.0
 
 [node name="play" type="TextureButton" parent="VBoxContainer"]
-margin_right = 250.0
+margin_right = 272.0
 margin_bottom = 80.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )
@@ -43,7 +45,7 @@ text = "PLAY"
 
 [node name="instructions" type="TextureButton" parent="VBoxContainer"]
 margin_top = 84.0
-margin_right = 250.0
+margin_right = 272.0
 margin_bottom = 164.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )
@@ -60,7 +62,7 @@ text = "HOW TO PLAY?"
 
 [node name="settings" type="TextureButton" parent="VBoxContainer"]
 margin_top = 168.0
-margin_right = 250.0
+margin_right = 272.0
 margin_bottom = 248.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )
@@ -77,7 +79,7 @@ text = "SETTINGS"
 
 [node name="quit" type="TextureButton" parent="VBoxContainer"]
 margin_top = 252.0
-margin_right = 250.0
+margin_right = 272.0
 margin_bottom = 332.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )

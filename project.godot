@@ -12,6 +12,8 @@ config_version=4
 
 config/name="CarWithAGun-3"
 run/main_scene="res://Scenes/UI/MainMenu.tscn"
+boot_splash/image="res://Assets/UI/yapson.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]

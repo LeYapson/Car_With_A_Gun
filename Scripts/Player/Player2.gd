@@ -2,9 +2,10 @@ extends KinematicBody2D
 
 # Signal emitted when player's health changes
 signal health_changed(new_health)
+signal player2_killed()
 
 # Maximum health of the player
-var MAX_HEALTH = 25
+const MAX_HEALTH = 25
 # Current health of the player
 var current_health: int = MAX_HEALTH
 
@@ -93,7 +94,7 @@ func rafale():
 
 # Reload the current scene (used for player respawn or restart)
 func kill():
-	get_tree().reload_current_scene()
+	emit_signal("player2_killed")
 
 # Handle collision with bullets
 func _on_Area2D_body_entered(body):
