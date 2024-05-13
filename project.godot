@@ -10,11 +10,12 @@ config_version=4
 
 [application]
 
-config/name="CarWithAGun-3"
+config/name="CarWithAGun"
+config/description="Car with a gun is a local multiplayer game in which each player embodies a car with a gun. The aim of the game is to win 3 rounds by killing your opponent."
 run/main_scene="res://Scenes/UI/MainMenu.tscn"
 boot_splash/image="res://Assets/UI/yapson.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://icon.png"
+config/icon="res://Assets/Player/voiture2.png"
 
 [autoload]
 

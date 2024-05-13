@@ -5,6 +5,8 @@ var ready_timer = null
 var fight_timer = null
 
 func _ready():
+	$GameManager/HealthBarCanva/Player1.set_physics_process(false)
+	$GameManager/HealthBarCanva/Player2.set_physics_process(false)
 	MusicController.play_music_game()
 	# Show "READY?" label initially
 	$ReadyLabel.visible = true
@@ -19,6 +21,8 @@ func _ready():
 	ready_timer.start()
 
 func _on_ready_timer_timeout():
+	$GameManager/HealthBarCanva/Player1.set_physics_process(true)
+	$GameManager/HealthBarCanva/Player2.set_physics_process(true)
 	# Hide "READY?" label
 	$ReadyLabel.visible = false
 	
