@@ -24,11 +24,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -272.0
-margin_top = -346.0
+margin_left = -259.0
+margin_top = -265.0
+margin_right = -8.0
+margin_bottom = -16.0
 
 [node name="play" type="TextureButton" parent="VBoxContainer"]
-margin_right = 272.0
+margin_right = 251.0
 margin_bottom = 80.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )
@@ -45,7 +47,7 @@ text = "PLAY"
 
 [node name="instructions" type="TextureButton" parent="VBoxContainer"]
 margin_top = 84.0
-margin_right = 272.0
+margin_right = 251.0
 margin_bottom = 164.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )
@@ -60,27 +62,10 @@ margin_bottom = 61.25
 custom_fonts/font = SubResource( 1 )
 text = "HOW TO PLAY?"
 
-[node name="settings" type="TextureButton" parent="VBoxContainer"]
-margin_top = 168.0
-margin_right = 272.0
-margin_bottom = 248.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 3 )
-texture_hover = ExtResource( 3 )
-texture_focused = ExtResource( 3 )
-
-[node name="Label" type="Label" parent="VBoxContainer/settings"]
-margin_left = 46.2499
-margin_top = 16.25
-margin_right = 201.25
-margin_bottom = 61.25
-custom_fonts/font = SubResource( 1 )
-text = "SETTINGS"
-
 [node name="quit" type="TextureButton" parent="VBoxContainer"]
-margin_top = 252.0
-margin_right = 272.0
-margin_bottom = 332.0
+margin_top = 168.0
+margin_right = 251.0
+margin_bottom = 248.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 3 )
 texture_hover = ExtResource( 3 )
@@ -96,5 +81,4 @@ text = "QUIT"
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/instructions" to="." method="_on_instructions_pressed"]
-[connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
