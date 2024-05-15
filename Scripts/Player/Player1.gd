@@ -102,3 +102,6 @@ func _on_Area2D_body_entered(body):
 	elif "bullet2" in body.name:
 		current_health -= 1
 		emit_signal("health_changed", current_health)
+		
+func heal():
+	emit_signal("health_changed", current_health)

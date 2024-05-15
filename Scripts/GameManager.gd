@@ -18,7 +18,9 @@ func _ready():
 	$HealthBarCanva/player2round/RoundWin3.visible = false
 	$Player1Win.visible = false
 	$Player2Win.visible = false
+# warning-ignore:return_value_discarded
 	$HealthBarCanva/Player1.connect("player1_killed", self, "_on_player1_killed")
+# warning-ignore:return_value_discarded
 	$HealthBarCanva/Player2.connect("player2_killed", self, "_on_player2_killed")
 	
 	
@@ -77,6 +79,8 @@ func _on_win_timer_timeout():
 	$Player2Win.visible = false
 	$HealthBarCanva/Player1.current_health = $HealthBarCanva/Player1.MAX_HEALTH
 	$HealthBarCanva/Player2.current_health = $HealthBarCanva/Player2.MAX_HEALTH
+	$HealthBarCanva/Player1.heal()
+	$HealthBarCanva/Player2.heal()
 
 
 	start_round()
@@ -84,6 +88,8 @@ func _on_win_timer_timeout():
 func start_round():
 	#increment the round count
 	round_count += 1
+	$HealthBarCanva/Player1.current_health -=1
+	$HealthBarCanva/Player2.current_health -=1
 
 func end_game():
 	if player1_score == 2:
@@ -112,4 +118,5 @@ func _on_end_timer_timeout():
 	player1_score = 0
 	player2_score = 0
 	round_count = 0
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/UI/MainMenu.tscn")
