@@ -77,8 +77,6 @@ func _on_win_timer_timeout():
 	# Hide "READY?" label
 	$Player1Win.visible = false
 	$Player2Win.visible = false
-	$HealthBarCanva/Player1.current_health = $HealthBarCanva/Player1.MAX_HEALTH
-	$HealthBarCanva/Player2.current_health = $HealthBarCanva/Player2.MAX_HEALTH
 	$HealthBarCanva/Player1.heal()
 	$HealthBarCanva/Player2.heal()
 
@@ -88,8 +86,6 @@ func _on_win_timer_timeout():
 func start_round():
 	#increment the round count
 	round_count += 1
-	$HealthBarCanva/Player1.current_health -=1
-	$HealthBarCanva/Player2.current_health -=1
 
 func end_game():
 	if player1_score == 2:

@@ -107,4 +107,5 @@ func _on_Area2D_body_entered(body):
 		emit_signal("health_changed", current_health)
 
 func heal():
+	current_health = MAX_HEALTH
 	emit_signal("health_changed", current_health)

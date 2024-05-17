@@ -5,8 +5,8 @@
 [ext_resource path="res://Scenes/multiplayer/Map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/multiplayer/HealthBar.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/UI/Fonts/retro.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Scripts/Multiplayer.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/GameManager.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/multiplayer/Multiplayer.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/multiplayer/GameManager.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=4]
 size = 100

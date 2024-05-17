@@ -1,18 +1,15 @@
 extends KinematicBody2D
 
+signal player1_killed()
+
 var movespeed = 500
 
 #bullet var
 var bullet_speed = 2000
 var bullet = preload("res://Scenes/bullet/bullet1.tscn")
 
-#guard var
-var is_guarding = false
-var guard_duration = 3.0
-var guard_cooldown = 5.0
-var guard_timer = 0.0
-var cooldown_timer = 0.0
-
+# Variable to store the last motion direction
+var last_motion_direction = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,9 +17,8 @@ func _ready():
 
 func _physics_process(delta):
 	var motion = Vector2()
-	var ennemy = get_parent().get_node("ennemy")
 
-	#player mvnt code
+	# Player movement code
 	if Input.is_action_pressed("up1"):
 		motion.y -= 1
 	if Input.is_action_pressed("down1"):
@@ -32,10 +28,23 @@ func _physics_process(delta):
 	if Input.is_action_pressed("right1"):
 		motion.x += 1
 
+	# Normalize the motion vector to ensure consistent movement speed in all directions
 	motion = motion.normalized()
+
+	# Move the player using move_and_slide
 	motion = move_and_slide(motion * movespeed)
-	look_at(ennemy.position)
+
+	# Update the last motion direction if the player is moving
+	if motion.length_squared() > 0:
+		last_motion_direction = motion
 	
+	# Rotate the player based on the last motion direction
+	if last_motion_direction.length_squared() > 0:
+		rotation = last_motion_direction.angle()
+		rotation_degrees = rad2deg(rotation)
+		self.rotation_degrees = rotation_degrees
+		
+
 	if Input.is_action_just_pressed("fire1"):
 		fire()
 	
@@ -50,7 +59,7 @@ func fire():
 
 
 func kill():
-	get_tree().reload_current_scene()
+	emit_signal("player killed")
 
 
 func _on_Area2D_body_entered(body):
