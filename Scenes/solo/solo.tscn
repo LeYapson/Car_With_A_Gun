@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/solo/ennemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/solo/SpawnLocation.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/solo/Player1solo.tscn" type="PackedScene" id=2]
 [ext_resource path="res://wall.tres" type="TileSet" id=3]
 [ext_resource path="res://Assets/UI/Sprite.png" type="Texture" id=4]
@@ -39,7 +39,6 @@ script = ExtResource( 6 )
 [node name="Player1solo" parent="GameManager" instance=ExtResource( 2 )]
 position = Vector2( 48, 53 )
 scale = Vector2( 0.5, 0.5 )
-collision_mask = 3
 
 [node name="Light2D" type="Light2D" parent="GameManager/Player1solo"]
 position = Vector2( -2, 0 )
@@ -52,81 +51,6 @@ shadow_enabled = true
 current = true
 zoom = Vector2( 0.6, 0.6 )
 smoothing_enabled = true
-
-[node name="ennemy" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 347, 106 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy2" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 28, 234 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy3" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 156, 390 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy4" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 394, 441 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy5" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 738, 427 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy6" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 134, 562 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy7" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 1297, 395 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy8" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 586, 615 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy9" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 1076, 1024 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy10" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 819, 1001 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy11" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 930, 219 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy12" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 1079, 542 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy13" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 1312, 753 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy14" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 816, 825 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
-
-[node name="ennemy15" parent="GameManager" instance=ExtResource( 1 )]
-position = Vector2( 597, 276 )
-scale = Vector2( 0.2, 0.2 )
-collision_mask = 3
 
 [node name="FightLabel" type="Label" parent="GameManager"]
 visible = false
@@ -144,3 +68,59 @@ margin_right = 117.0
 margin_bottom = -8.0
 custom_fonts/font = SubResource( 2 )
 text = "READY ?"
+
+[node name="Timer" type="Timer" parent="GameManager"]
+wait_time = 5.0
+
+[node name="SpawnTimer" type="Timer" parent="GameManager"]
+
+[node name="SpawnLocation" parent="GameManager" instance=ExtResource( 1 )]
+position = Vector2( 345, 105 )
+
+[node name="Position2D" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 345, 655 )
+
+[node name="Position2D2" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 395, 446 )
+
+[node name="Position2D3" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 944, 217 )
+
+[node name="Position2D4" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 749, 432 )
+
+[node name="Position2D5" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 31, 237 )
+
+[node name="Position2D6" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 136, 564 )
+
+[node name="Position2D7" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 589, 616 )
+
+[node name="Position2D8" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 1314, 598 )
+
+[node name="Position2D9" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 1292, 389 )
+
+[node name="Position2D10" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 822, 1007 )
+
+[node name="Position2D11" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 982, 562 )
+
+[node name="Position2D12" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 173, 1061 )
+
+[node name="Position2D13" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 824, 845 )
+
+[node name="Position2D14" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 1366, 934 )
+
+[node name="Position2D15" type="Position2D" parent="GameManager" groups=["spawn"]]
+position = Vector2( 685, 39 )
+
+[connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_Timer_timeout"]
+[connection signal="timeout" from="GameManager/SpawnTimer" to="GameManager" method="_on_SpawnTimer_timeout"]

@@ -25,10 +25,6 @@ var burst_timer = 0.0
 # Variable to store the last motion direction
 var last_motion_direction = Vector2.ZERO
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
 # Process player actions and movements
 func _physics_process(delta):
 	var motion = Vector2()

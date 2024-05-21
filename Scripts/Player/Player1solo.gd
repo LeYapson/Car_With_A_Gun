@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-signal player1_killed()
+signal player_killed()
 
 var movespeed = 500
 
@@ -59,7 +59,8 @@ func fire():
 
 
 func kill():
-	emit_signal("player killed")
+	print("signal send")
+	emit_signal("player_killed")
 
 
 func _on_Area2D_body_entered(body):
