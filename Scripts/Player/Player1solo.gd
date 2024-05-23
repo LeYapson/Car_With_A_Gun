@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 signal player_killed()
 
+var score = 0
+
 var movespeed = 500
 
 #bullet var
@@ -59,7 +61,6 @@ func fire():
 
 
 func kill():
-	print("signal send")
 	emit_signal("player_killed")
 
 

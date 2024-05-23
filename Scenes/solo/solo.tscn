@@ -126,9 +126,24 @@ position = Vector2( 1366, 934 )
 position = Vector2( 685, 39 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 1192, 224 )
+position = Vector2( 218, 463 )
 scale = Vector2( 8.96, 9.56 )
 texture = ExtResource( 5 )
+offset = Vector2( 108.705, -25 )
+energy = 2.21
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 242, 1056 )
+scale = Vector2( 8.96, 9.56 )
+texture = ExtResource( 5 )
+offset = Vector2( 108.705, -25 )
+energy = 2.21
+
+[node name="Light2D3" type="Light2D" parent="."]
+position = Vector2( -623, 1079 )
+scale = Vector2( 8.96, 9.56 )
+texture = ExtResource( 5 )
+offset = Vector2( 108.705, -25 )
 energy = 2.21
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_Timer_timeout"]
