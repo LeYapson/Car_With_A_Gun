@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Shadowed Battleground.mp3-fd0340e42448a9e531b81202e49ae7c7.mp3str"
+
+[deps]
+
+source_file="res://Assets/sound/Shadowed Battleground.mp3"
+dest_files=[ "res://.import/Shadowed Battleground.mp3-fd0340e42448a9e531b81202e49ae7c7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

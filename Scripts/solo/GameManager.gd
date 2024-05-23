@@ -1,21 +1,21 @@
 extends Node
 
-var ennemy = preload("res://Scenes/solo/ennemy.tscn")
+var enemy_scene = preload("res://Scenes/solo/ennemy.tscn")
+var enemies = []  # List to keep track of spawned enemies
+
 # Variables
 var round_count = 0
 var ready_timer = null
 var fight_timer = null
 
-
 func _ready():
-	pausePlayer()
-	
+	pause_player()
 	$Player1solo.connect("player_killed", self, "_on_player_killed")
 
 	# Show "READY?" label initially
 	$ReadyLabel.visible = true
 	$FightLabel.visible = false
-	
+
 	# Create and start timer for "READY?" label
 	ready_timer = Timer.new()
 	add_child(ready_timer)
@@ -24,14 +24,22 @@ func _ready():
 	ready_timer.connect("timeout", self, "_on_ready_timer_timeout")
 	ready_timer.start()
 
+	# Create and start a timer for increasing enemy speed
+	var speed_timer = Timer.new()
+	add_child(speed_timer)
+	speed_timer.wait_time = 5
+	speed_timer.one_shot = false
+	speed_timer.connect("timeout", self, "_on_speed_timer_timeout")
+	speed_timer.start()
+
 func _on_ready_timer_timeout():
-	unpausePlayer()
+	unpause_player()
 	# Hide "READY?" label
 	$ReadyLabel.visible = false
-	
+
 	# Show "FIGHT!" label
 	$FightLabel.visible = true
-	
+
 	# Create and start timer for "FIGHT!" label
 	fight_timer = Timer.new()
 	add_child(fight_timer)
@@ -47,26 +55,28 @@ func _on_fight_timer_timeout():
 	$Timer.start()
 
 func _on_SpawnTimer_timeout():
-	
-	var ennemy_instance =ennemy.instance()
-	add_child(ennemy_instance)
-	ennemy_instance.position = $SpawnLocation.position
+	var enemy_instance = enemy_scene.instance()
+	add_child(enemy_instance)
+	enemy_instance.position = $SpawnLocation.position
+
+	# Add the enemy instance to the enemies list
+	enemies.append(enemy_instance)
+
 	var nodes = get_tree().get_nodes_in_group("spawn")
 	var node = nodes[randi() % nodes.size()]
 	var position = node.position
 	$SpawnLocation.position = position
 
-
 func _on_player_killed():
 	get_tree().change_scene("res://Scenes/UI/MainMenu.tscn")
 
-func pausePlayer():
+func pause_player():
 	$Player1solo.set_physics_process(false)
-	
-func unpausePlayer():
+
+func unpause_player():
 	$Player1solo.set_physics_process(true)
 
-
-
-func _on_Timer_timeout():
-	ennemy.speed *= 2
+func _on_speed_timer_timeout():
+	for enemy in enemies:
+		if is_instance_valid(enemy):
+			enemy.increase_speed()
