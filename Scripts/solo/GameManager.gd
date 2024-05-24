@@ -68,7 +68,7 @@ func _on_SpawnTimer_timeout():
 	$SpawnLocation.position = position
 
 func _on_player_killed():
-	get_tree().change_scene("res://Scenes/UI/MainMenu.tscn")
+	get_tree().change_scene("res://Scenes/UI/GameOver.tscn")
 
 func pause_player():
 	$Player1solo.set_physics_process(false)

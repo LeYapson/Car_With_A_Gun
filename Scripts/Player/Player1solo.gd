@@ -2,8 +2,6 @@ extends KinematicBody2D
 
 signal player_killed()
 
-var score = 0
-
 var movespeed = 500
 
 #bullet var
