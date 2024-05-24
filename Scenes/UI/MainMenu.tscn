@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/UI/Fonts/retro.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/UI/MainMenu.jpg" type="Texture" id=2]
@@ -11,6 +11,14 @@ size = 50
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 50
 font_data = ExtResource( 1 )
 
@@ -106,6 +114,28 @@ margin_right = 170.0
 margin_bottom = 62.0
 custom_fonts/font = SubResource( 1 )
 text = "QUIT"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 872.5, 279.5 )
+scale = Vector2( 1.1, 5.3125 )
+texture = ExtResource( 3 )
+
+[node name="leaderboardTitle" type="Label" parent="."]
+margin_left = 737.0
+margin_top = 88.0
+margin_right = 1009.0
+margin_bottom = 133.0
+custom_fonts/font = SubResource( 3 )
+text = "leaderboard"
+align = 1
+
+[node name="LeaderboardLabel" type="Label" parent="."]
+margin_left = 745.0
+margin_top = 148.0
+margin_right = 1002.0
+margin_bottom = 475.0
+custom_fonts/font = SubResource( 4 )
+align = 1
 
 [connection signal="pressed" from="VBoxContainer/solo" to="." method="_on_solo_pressed"]
 [connection signal="pressed" from="VBoxContainer/multi" to="." method="_on_multi_pressed"]

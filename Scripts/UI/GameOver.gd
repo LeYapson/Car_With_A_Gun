@@ -1,40 +1,33 @@
 extends Control
 
-onready var submit_button = $HBoxContainer2/SubmitScore
-onready var retry_button = $HBoxContainer2/Retry
 onready var score_label = $ScoreDisplay  # Assuming you have a Label node named ScoreLabel
+onready var sprites = [$HBoxContainer/Sprite0, $HBoxContainer/Sprite1, $HBoxContainer/Sprite2]  # Assuming you have Sprite nodes named Sprite0, Sprite1, Sprite2
 
 var current_letter_index = 0
 var letters = ["A", "A", "A"]
 
 func _ready():
+	MusicController.stop_music()
 	# Update the score label
 	update_score_display()
+	update_sprites_visibility()
 
 func _process(delta):
 	# Handle input using Input.is_action_pressed
-	if Input.is_action_pressed("up1"):
-		if current_letter_index < 2:
-			increment_letter(1)
-		else:
-			submit_button.grab_focus()
-	elif Input.is_action_pressed("down1"):
-		if current_letter_index < 2:
-			increment_letter(-1)
-		else:
-			retry_button.grab_focus()
-	elif Input.is_action_pressed("right1"):
-		if current_letter_index < 3:
-			move_to_next_letter(1)
-	elif Input.is_action_pressed("left1"):
-		if current_letter_index < 3 and current_letter_index > 0:
-			move_to_next_letter(-1)
-	elif Input.is_action_pressed("fire1"):
-		if current_letter_index == 3:
+	if Input.is_action_just_pressed("up1"):
+		increment_letter(1)
+	elif Input.is_action_just_pressed("down1"):
+		increment_letter(-1)
+	elif Input.is_action_just_pressed("right1"):
+		move_to_next_letter(1)
+	elif Input.is_action_just_pressed("left1"):
+		move_to_next_letter(-1)
+	elif Input.is_action_just_pressed("fire1"):
+		if current_letter_index == 2:
 			submit_score()
 		else:
 			move_to_next_letter(1)
-	elif Input.is_action_pressed("fire1"):
+	elif Input.is_action_just_pressed("rafale1"):
 		retry()
 
 func increment_letter(delta):
@@ -51,6 +44,8 @@ func char_increment(character, delta):
 	if index == -1:
 		return character  # Character not found in the alphabet
 	var new_index = (index + delta) % alphabet.length()
+	if new_index < 0:
+		new_index = alphabet.length() - 1
 	return alphabet[new_index]
 
 func move_to_next_letter(delta):
@@ -58,8 +53,8 @@ func move_to_next_letter(delta):
 	if current_letter_index < 0:
 		current_letter_index = 0
 	elif current_letter_index > 2:
-		current_letter_index = 2
-	update_score_display()
+		current_letter_index = 3
+	update_sprites_visibility()
 
 func submit_score():
 	var name = "".join(letters)
@@ -73,4 +68,8 @@ func _on_submit_pressed():
 	submit_score()
 
 func update_score_display():
-	score_label.text = "Score: " + str(ScoreManager.score)
+	score_label.text = "Score: " + str(ScoreManager.score) + "\n" + "".join(letters)
+
+func update_sprites_visibility():
+	for i in range(sprites.size()):
+		sprites[i].visible = (i == current_letter_index)

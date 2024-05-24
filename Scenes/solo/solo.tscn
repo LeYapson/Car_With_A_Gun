@@ -76,6 +76,7 @@ text = "READY ?"
 wait_time = 60.0
 
 [node name="SpawnTimer" type="Timer" parent="GameManager"]
+wait_time = 3.0
 
 [node name="SpawnLocation" parent="GameManager" instance=ExtResource( 1 )]
 position = Vector2( 345, 105 )

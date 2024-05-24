@@ -24,14 +24,6 @@ func _ready():
 	ready_timer.connect("timeout", self, "_on_ready_timer_timeout")
 	ready_timer.start()
 
-	# Create and start a timer for increasing enemy speed
-	var speed_timer = Timer.new()
-	add_child(speed_timer)
-	speed_timer.wait_time = 5
-	speed_timer.one_shot = false
-	speed_timer.connect("timeout", self, "_on_speed_timer_timeout")
-	speed_timer.start()
-
 func _on_ready_timer_timeout():
 	unpause_player()
 	# Hide "READY?" label
@@ -76,7 +68,10 @@ func pause_player():
 func unpause_player():
 	$Player1solo.set_physics_process(true)
 
-func _on_speed_timer_timeout():
+
+func _on_Timer_timeout():
+	ScoreManager.add_score(100)
+	$SpawnTimer.wait_time -= 0.1
 	for enemy in enemies:
 		if is_instance_valid(enemy):
 			enemy.increase_speed()

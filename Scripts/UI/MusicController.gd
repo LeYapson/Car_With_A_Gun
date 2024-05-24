@@ -23,3 +23,6 @@ func play_music_game():
 func play_solo_music_game():
 	$music.stream = solo_game_music
 	$music.play()
+	
+func stop_music():
+	$music.stop()
