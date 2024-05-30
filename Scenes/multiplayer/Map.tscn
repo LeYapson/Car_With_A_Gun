@@ -21,7 +21,7 @@ region = Rect2( 5760, 0, 1920, 1080 )
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
-"loop": true,
+"loop": false,
 "name": "default",
 "speed": 1.0
 } ]
@@ -47,7 +47,7 @@ extents = Vector2( 538, 18.5 )
 position = Vector2( 512, 300 )
 scale = Vector2( 0.533333, 0.555556 )
 frames = SubResource( 5 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

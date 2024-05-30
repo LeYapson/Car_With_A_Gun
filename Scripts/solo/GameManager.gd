@@ -2,12 +2,12 @@ extends Node
 
 var enemy_scene = preload("res://Scenes/solo/ennemy.tscn")
 var enemies = []  # List to keep track of spawned enemies
-
-# Variables
 var round_count = 0
 var ready_timer = null
 var fight_timer = null
 
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	pause_player()
 	$Player1solo.connect("player_killed", self, "_on_player_killed")
@@ -23,6 +23,7 @@ func _ready():
 	ready_timer.one_shot = true
 	ready_timer.connect("timeout", self, "_on_ready_timer_timeout")
 	ready_timer.start()
+
 
 func _on_ready_timer_timeout():
 	unpause_player()
@@ -40,11 +41,13 @@ func _on_ready_timer_timeout():
 	fight_timer.connect("timeout", self, "_on_fight_timer_timeout")
 	fight_timer.start()
 
+
 func _on_fight_timer_timeout():
 	# Hide "FIGHT!" label
 	$FightLabel.visible = false
 	$SpawnTimer.start()
 	$Timer.start()
+
 
 func _on_SpawnTimer_timeout():
 	var enemy_instance = enemy_scene.instance()
@@ -59,11 +62,14 @@ func _on_SpawnTimer_timeout():
 	var position = node.position
 	$SpawnLocation.position = position
 
+
 func _on_player_killed():
 	get_tree().change_scene("res://Scenes/UI/GameOver.tscn")
 
+
 func pause_player():
 	$Player1solo.set_physics_process(false)
+
 
 func unpause_player():
 	$Player1solo.set_physics_process(true)

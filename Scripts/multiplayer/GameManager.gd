@@ -7,8 +7,8 @@ var player1_score = 0
 var player2_score = 0
 
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	start_round()
 	$HealthBarCanva/player1round/RoundWin1.visible = false
 	$HealthBarCanva/player1round/RoundWin2.visible = false
@@ -22,8 +22,8 @@ func _ready():
 	$HealthBarCanva/Player1.connect("player1_killed", self, "_on_player1_killed")
 # warning-ignore:return_value_discarded
 	$HealthBarCanva/Player2.connect("player2_killed", self, "_on_player2_killed")
-	
-	
+
+
 # Function called when the player is killed
 func _on_player1_killed():
 	$HealthBarCanva/Player2.set_physics_process(false)
@@ -65,7 +65,7 @@ func _on_player2_killed():
 		win_timer.one_shot = true
 		win_timer.connect("timeout", self, "_on_win_timer_timeout")
 		win_timer.start()
-		
+
 
 func _on_win_timer_timeout():
 	$HealthBarCanva/Player1.set_physics_process(true)
@@ -79,13 +79,13 @@ func _on_win_timer_timeout():
 	$Player2Win.visible = false
 	$HealthBarCanva/Player1.heal()
 	$HealthBarCanva/Player2.heal()
-
-
 	start_round()
-	
+
+
 func start_round():
 	#increment the round count
 	round_count += 1
+
 
 func end_game():
 	if player1_score == 2:
@@ -108,6 +108,7 @@ func end_game():
 		end_timer.one_shot = true
 		end_timer.connect("timeout", self, "_on_end_timer_timeout")
 		end_timer.start()
+
 
 func _on_end_timer_timeout():
 	# Reset scores and round count for a new game (optional)

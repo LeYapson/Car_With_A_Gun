@@ -4,6 +4,8 @@ extends Node2D
 var ready_timer = null
 var fight_timer = null
 
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	$GameManager/HealthBarCanva/Player1.set_physics_process(false)
 	$GameManager/HealthBarCanva/Player2.set_physics_process(false)
@@ -19,6 +21,7 @@ func _ready():
 	ready_timer.one_shot = true
 	ready_timer.connect("timeout", self, "_on_ready_timer_timeout")
 	ready_timer.start()
+
 
 func _on_ready_timer_timeout():
 	$GameManager/HealthBarCanva/Player1.set_physics_process(true)
@@ -37,13 +40,7 @@ func _on_ready_timer_timeout():
 	fight_timer.connect("timeout", self, "_on_fight_timer_timeout")
 	fight_timer.start()
 
+
 func _on_fight_timer_timeout():
 	# Hide "FIGHT!" label
 	$FightLabel.visible = false
-	
-	# Start your game logic here after countdown finishes
-	# For example:
-	# start_game_logic()
-
-	# Additional game logic can be added here
-	pass

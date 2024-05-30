@@ -3,17 +3,12 @@ extends KinematicBody2D
 signal player_killed()
 
 var movespeed = 500
-
 #bullet var
 var bullet_speed = 2000
 var bullet = preload("res://Scenes/bullet/bullet1.tscn")
-
 # Variable to store the last motion direction
 var last_motion_direction = Vector2.ZERO
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 func _physics_process(delta):
 	var motion = Vector2()
@@ -47,7 +42,6 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("fire1"):
 		fire()
-	
 
 
 func fire():
